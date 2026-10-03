@@ -1,0 +1,4 @@
+
+> divisor_cuenta_web@1.0.0 lint
+> oxlint
+

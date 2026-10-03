@@ -1,0 +1,1 @@
+{"FEATURE_DIR":"C:\\FlutterProjects\\Prog.-Asistida-de-Aplicaciones\\deber2\\divisor_cuenta_web\\specs\\001-divisor-cuenta","AVAILABLE_DOCS":["research.md","data-model.md","contracts/","quickstart.md","tasks.md"]}

@@ -1,0 +1,62 @@
+
+ RUN  v5.0.3 C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web
+
+ ❯ test/division.test.js (0 test)
+ ❯ test/pantalla.test.jsx (0 test)
+npx.cmd : 
+At line:2 char:1
++ npx.cmd vitest run test/division.test.js test/pantalla.test.jsx 2>&1  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/division.test.js [ test/division.test.js ]
+Error: Failed to resolve import "../src/domain/calcularDivision.js" from "test/division.test.js". Does the file exist?
+  Plugin: vite:import-analysis
+  File: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web/test/division.test.js:5:33
+  3  |  import { cuenta } from "../src/domain/cuenta.js";
+  4  |  import { validarEntrada } from "../src/domain/validarEntrada.js";
+  5  |  import { calcularDivision } from "../src/domain/calcularDivision.js";
+     |                                    ^
+  6  |  import { redondeoExacto } from "../src/data/redondeoExacto.js";
+  7  |  import { redondeoHaciaArriba } from "../src/data/redondeoHaciaArriba.js";
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/node.js:8766:39
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/node.js:8763:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/node.js:26423:18
+ ❯ node_modules/vite/dist/node/chunks/node.js:26493:30
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/node.js:26459:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/node.js:8545:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/node.js:19988:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/pantalla.test.jsx [ test/pantalla.test.jsx ]
+Error: Failed to resolve import "../src/presentation/PantallaDivisor.jsx" from "test/pantalla.test.jsx". Does the file 
+exist?
+  Plugin: vite:import-analysis
+  File: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web/test/pantalla.test.jsx:3:32
+  1  |  import { fireEvent, render, screen } from "@testing-library/react";
+  2  |  import { expect, it, vi } from "vitest";
+  3  |  import { PantallaDivisor } from "../src/presentation/PantallaDivisor.jsx";
+     |                                   ^
+  4  |  import { dependencias } from "./fixtures.js";
+  5  |  var _jsxFileName = 
+"C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web/test/pantalla.test.jsx";
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/node.js:8766:39
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/node.js:8763:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/node.js:26423:18
+ ❯ node_modules/vite/dist/node/chunks/node.js:26493:30
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/node.js:26459:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/node.js:8545:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/node.js:19988:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  no tests
+   Start at  19:59:08
+   Duration  58.98s (environment 77%, setup 22%)
+

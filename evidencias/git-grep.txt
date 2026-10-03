@@ -1,0 +1,28 @@
+Comprobaciones git grep solicitadas por Deber2
+Código 1 en grep significa ninguna coincidencia, no error de implementación.
+
+Domain sin React
+$ git grep -n from 'react' -- src/domain/
+(sin coincidencias)
+Código: 1
+
+Concretos fuera de data solo main
+$ git grep -n redondeoExacto\|redondeoHaciaArriba -- src/
+src/data/redondeoExacto.js:2:export function redondeoExacto() {
+src/data/redondeoHaciaArriba.js:2:export function redondeoHaciaArriba() {
+src/main.jsx:5:import { redondeoExacto } from './data/redondeoExacto.js'
+src/main.jsx:6:import { redondeoHaciaArriba } from './data/redondeoHaciaArriba.js'
+src/main.jsx:17:    { id: 'exacto', etiqueta: 'Exacto', estrategia: redondeoExacto() },
+src/main.jsx:18:    { id: 'arriba', etiqueta: 'Hacia arriba', estrategia: redondeoHaciaArriba() },
+Código: 0
+
+Cálculo sin inspección de tipos
+$ git grep -n instanceof\|=== 'exacto'\|=== 'arriba' -- src/domain/calcularDivision.js
+(sin coincidencias)
+Código: 1
+
+Cálculo sin formato ni validación
+$ git grep -n toFixed\|inválido\|al menos una persona -- src/domain/calcularDivision.js
+(sin coincidencias)
+Código: 1
+

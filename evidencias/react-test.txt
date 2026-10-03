@@ -1,0 +1,11 @@
+
+ RUN  v5.0.3 C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web
+
+
+ Test Files  4 passed (4)
+      Tests  39 passed (39)
+   Start at  20:08:15
+   Duration  3.72s (environment 56%, tests 20%, setup 16%, transform 5%, import 2%, worker 1%)
+
+
+Código de salida: 0

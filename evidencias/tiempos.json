@@ -1,4 +1,6 @@
 {
   "inicio": "2026-10-03T00:53:08.128Z",
-  "criterio": "Inicio del flujo speckit-plan; primer pedido del estudiante autorizado en la misma sesion."
+  "criterio": "Inicio del flujo speckit-plan; primer pedido del estudiante autorizado en la misma sesion.",
+  "primeraCompilacion": "2026-10-03T01:08:11.625Z",
+  "seisCasosVerdes": "2026-10-03T01:08:14.213Z"
 }

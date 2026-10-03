@@ -1,0 +1,146 @@
+diff --git a/evidencias/original/plan.md b/specs/001-divisor-cuenta/plan.md
+index e343965..78303c9 100644
+--- a/evidencias/original/plan.md
++++ b/specs/001-divisor-cuenta/plan.md
+@@ -1,75 +1,89 @@
+-﻿# Implementation Plan: Divisor de cuenta
++# Implementation Plan: Divisor de cuenta web
+ 
+-**Branch**: `sdd` | **Date**: 2026-09-30 | **Spec**: [spec.md](spec.md)
+-**Input**: specs/001-divisor-cuenta/spec.md
++**Branch**: main | **Date**: 2026-10-02 | **Spec**: [spec.md](spec.md)
++**Input**: specs/001-divisor-cuenta/spec.md, copia íntegra de sdd de Participacion1oct.
+ 
+ ## Summary
+ 
+ Dividir una cuenta con propina, validación y dos estrategias intercambiables de redondeo.
+-Una pantalla Material 3, estado local setState y dependencias inyectadas desde main.dart.
++Una pantalla React, estado local useState y dependencias inyectadas desde src/main.jsx.
++No se ejecuta speckit-specify; la especificación permanece idéntica.
+ 
+ ## Technical Context
+ 
+-- Language/Version: Dart 3.13.1, Flutter estable 3.47.1 (versiones comprobadas).
+-- Primary Dependencies: Flutter SDK; sin paquetes externos en producción. Retirar cupertino_icons del scaffold.
+-- Testing: flutter_test del SDK, flutter_lints heredado solo para desarrollo y comprobador Dart puro.
+-- Storage: ninguna. Sin API ni red.
+-- Target Platform: Android y web; scaffold iOS conservado sin cambios, no verificable desde Windows.
+-- Project Type: app móvil/web de una pantalla.
+-- Performance Goals: cálculo síncrono O(1), sin tareas de E/S ni espera de red.
+-- Constraints: no editar android/ios; validación antes del cálculo; dos decimales; offline.
+-- Scale/Scope: una cuenta por vez, sin persistencia ni usuarios.
++- Language/Version: JavaScript ES modules y JSX; Node 22.17.0, npm 10.9.2 comprobados.
++- Primary Dependencies: React/React DOM 19.2.8, Vite 8.3.2 y plugin-react 6.1.1. Sin librería de estado externa.
++- Storage: ninguna. Sin API ni red en ejecución, historial, persistencia ni usuarios.
++- Testing: Vitest 5.0.3, Testing Library React 16.3.3, jest-dom 7.0.1 y jsdom 27.3.0.
++- Target Platform: navegador web; assets locales y ningún recurso CDN. Tras cargar la página, cálculo sin red. No se requiere instalar una PWA ni garantizar la primera carga desconectada.
++- Project Type: aplicación cliente de una pantalla, sin backend. Node solo ejecuta herramientas.
++- Performance Goals: cálculo síncrono O(1), sin E/S.
++- Constraints: validar antes del cálculo; dos decimales; offline durante el cálculo; conservar límites y mensajes.
++- Scale/Scope: una cuenta por vez; viewport estrecho y etiquetas accesibles.
+ 
+ ## Constitution Check
+ 
+-Antes y después del diseño: aprobado. SRP separa cálculo/validación/formato; OCP y LSP usan
+-EstrategiaRedondeo; ISP conserva un método; DIP inyecta dependencias desde main.dart.
+-Domain y data son Dart puro. Solo tests y main pueden crear las estrategias concretas.
+-Los seis escenarios se traducen literalmente a datos de pruebas antes de implementar.
+-No hay excepciones a la constitución.
++Antes de investigar y después del diseño: aprobado sin excepciones. SRP separa validar, calcular, formatear y dibujar.
++OCP permite registrar otra estrategia en main sin cambiar cálculo; LSP no inspecciona tipos; ISP solo aplicar(valor).
++DIP: useDivisor recibe validar/calcular/formatear/opciones por argumento; presentation no importa data.
++Domain es JavaScript puro, ejecutable con Node sin React ni DOM. main es el único punto de composición.
++Los seis casos y errores conservan el significado de Dart. Se incluyen pruebas de límites y edición porque la spec los exige.
+ 
+ ## Project Structure
+ 
+-Documentos: spec.md, plan.md, research.md, data-model.md, contracts/interfaz.md,
+-quickstart.md, tasks.md y checklists/requirements.md dentro de specs/001-divisor-cuenta/.
++### Documentation (this feature)
++
++specs/001-divisor-cuenta contiene spec.md, plan.md, research.md, data-model.md, contracts/interfaz.md, quickstart.md y tasks.md.
++analisis_spec.md y evidencias/original conservan el inventario y punto de partida.
++
++### Source Code (repository root)
+ 
+ ```text
+-lib/
+-  domain/cuenta.dart
+-  domain/resultado.dart
+-  domain/estrategia_redondeo.dart
+-  domain/calcular_division.dart
+-  domain/validar_entrada.dart
+-  data/redondeo_exacto.dart
+-  data/redondeo_hacia_arriba.dart
+-  presentation/divisor_controller.dart
+-  presentation/formateador_moneda.dart
+-  presentation/pantalla_divisor.dart
+-  main.dart
++src/
++  domain/cuenta.js
++  domain/resultado.js
++  domain/estrategiaRedondeo.js
++  domain/calcularDivision.js
++  domain/validarEntrada.js
++  data/redondeoExacto.js
++  data/redondeoHaciaArriba.js
++  presentation/useDivisor.js
++  presentation/formateadorMoneda.js
++  presentation/PantallaDivisor.jsx
++  main.jsx
++  index.css
+ test/
+-  casos_de_prueba.dart
+-  division_test.dart
+-  pantalla_test.dart
+-  limites_test.dart
++  casosDePrueba.js
++  setup.js
++  division.test.js
++  pantalla.test.jsx
++  limites.test.js
++  interaccion.test.jsx
+ tool/
+-  verificar_domain.dart
+-  verificar_arquitectura.ps1
++  verificarArquitectura.mjs
++  compararCasos.mjs
+ ```
+ 
+-**Structure Decision**: respetar las tres capas exigidas; data contiene estrategias, no una base de datos.
+-El controlador convierte texto a Cuenta, llama ValidarEntrada y solo calcula si devuelve null.
+-Su mapa de estrategias se inyecta; agregar una estrategia no exige tocar CalcularDivision.
+-PantallaDivisor recibe el controlador, renderiza campos, elección y resultado; maneja setState.
+-FormateadorMoneda recibe double y devuelve toStringAsFixed(2).
+-RedondeoExacto aplica (valor * 100 + 0.000001).round() / 100 para compensar el error binario
+-muy pequeño en mitades; la tolerancia representa 0.00000001 unidades monetarias.
+-RedondeoHaciaArriba usa ceilToDouble(), sin alterar valores enteros.
+-La pantalla es desplazable y limita su ancho a 520 para web; no agrega pantallas ni funciones.
++**Structure Decision**: tres capas; data contiene estrategias, ninguna base de datos.
++useDivisor convierte texto a Cuenta, llama validarEntrada y calcula solo cuando devuelve null.
++Parseo decimal completo con punto o coma: vacío, texto parcial e infinito se rechazan; personas solo enteras.
++El hook recibe opciones de redondeo inyectadas; agregar estrategia no exige editar calcularDivision.
++PantallaDivisor recibe dependencias, usa el hook y renderiza formulario, selección, error y resultado.
++formateadorMoneda recibe un número y devuelve toFixed(2), sin símbolo monetario.
++Redondeo exacto usa Math.round(valor * 100 + 0.000001) / 100, igual tolerancia que Flutter.
++Redondeo hacia arriba usa Math.ceil, conservando los enteros.
++La pantalla permite desplazamiento y ancho adaptable; inputs de texto con inputMode permiten probar abc y coma decimal.
++Editar cualquier campo o modo borra resultado y error. Inicio: monto vacío, 2 personas, propina 0, exacto.
+ 
+ ## Phases
+ 
+-0. Decisiones resueltas con enunciado, SDK instalado y constitution; ninguna investigación delegada necesaria.
+-1. Modelos, contrato y guía rápida de ejecución.
+-2. Tareas y análisis de cobertura antes del código.
+-3. Pruebas primero, dominio, estrategias, controlador, pantalla y composición.
+-4. Análisis estático, pruebas, Dart puro, reglas SOLID y APK; registro de resultados.
++0. Investigar compatibilidad en fuentes oficiales y resolver decisiones en research.md.
++1. Modelos, contrato UI/estrategia y quickstart.
++2. Tareas por historia y análisis de cobertura antes del código.
++3. Pruebas de contrato primero, dominio, estrategias, hook, pantalla y composición.
++4. Converger frente a artefactos; pruebas de seis casos, suite completa, lint, build y arquitectura.
++5. Diffs, métricas, respuestas, guía de funciones y publicación GitHub.
++
++## Complexity Tracking
++
++Sin violaciones de la constitución ni excepciones.
