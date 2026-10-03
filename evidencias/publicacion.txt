@@ -1,0 +1,18 @@
+Publicación realizada y verificada el 2026-10-02, America/Bogota.
+
+React: https://github.com/paugallardo-collab/divisor_cuenta_web
+Visibilidad PRIVATE, igual que el laboratorio.
+git push -u origin main: código 0, nueva rama main publicada.
+git ls-remote origin refs/heads/main:
+88bc0249a455b354935eb192d86343e3fd749691 refs/heads/main
+Ese commit contiene implementación, tests y entrega escrita.
+
+Flutter: https://github.com/paugallardo-collab/Participacion1oct/tree/sdd
+Visibilidad PRIVATE.
+git push origin sdd: código 0, actualizado 32d62a1..58dc10c.
+git ls-remote origin refs/heads/sdd:
+58dc10c9ac273cb1bde638cc86c0f55f1290a963 refs/heads/sdd
+Contiene la bitácora observada de la migración; el código Flutter no cambió.
+
+Esta evidencia y la marca final T021 se añaden en un commit documental posterior.
+El profesor debe tener acceso a ambos repos privados; no se cambió visibilidad ni se enviaron invitaciones o una entrega a la plataforma.

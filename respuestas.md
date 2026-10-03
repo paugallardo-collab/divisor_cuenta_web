@@ -375,3 +375,82 @@ Entradas, escenarios, valores esperados y mensajes sin cambios; solo sintaxis y 
 ```
 
 Constitución diff completa: [constitution-diff.txt](evidencias/constitution-diff.txt). Workflows: [analyze](evidencias/analisis-previo.md), [converge](evidencias/convergencia.md). Revisión visual en navegador pendiente por ausencia de navegador conectado, no se atribuye al estudiante.
+
+## Comprobaciones git grep
+
+```text
+Comprobaciones git grep solicitadas por Deber2
+Código 1 en grep significa ninguna coincidencia, no error de implementación.
+
+Domain sin React
+$ git grep -n from 'react' -- src/domain/
+(sin coincidencias)
+Código: 1
+
+Concretos fuera de data solo main
+$ git grep -n redondeoExacto\|redondeoHaciaArriba -- src/
+src/data/redondeoExacto.js:2:export function redondeoExacto() {
+src/data/redondeoHaciaArriba.js:2:export function redondeoHaciaArriba() {
+src/main.jsx:5:import { redondeoExacto } from './data/redondeoExacto.js'
+src/main.jsx:6:import { redondeoHaciaArriba } from './data/redondeoHaciaArriba.js'
+src/main.jsx:17:    { id: 'exacto', etiqueta: 'Exacto', estrategia: redondeoExacto() },
+src/main.jsx:18:    { id: 'arriba', etiqueta: 'Hacia arriba', estrategia: redondeoHaciaArriba() },
+Código: 0
+
+Cálculo sin inspección de tipos
+$ git grep -n instanceof\|=== 'exacto'\|=== 'arriba' -- src/domain/calcularDivision.js
+(sin coincidencias)
+Código: 1
+
+Cálculo sin formato ni validación
+$ git grep -n toFixed\|inválido\|al menos una persona -- src/domain/calcularDivision.js
+(sin coincidencias)
+Código: 1
+
+
+```
+
+## Publicación y reproducibilidad
+
+### Verificación final desde instalación reproducible
+
+El 2 de octubre de 2026, en America/Bogota, se ejecutó `npm ci` con Node 22.17.0 y el package-lock.json versionado.
+
+Primera tentativa: Windows bloqueó rolldown mientras el servidor Vite local lo usaba. Se detuvo el servidor de esta sesión y se repitió npm ci; instalación correcta de 113 paquetes, sin cambios al código ni a los casos.
+
+Secuencia final observada:
+
+```text
+npm ci: added 113 packages, audited 114 packages; found 0 vulnerabilities
+npm test: Test Files 4 passed (4); Tests 39 passed (39)
+npm run lint: oxlint, código 0
+npm run verificar: dominio puro, capas, composición y seis fixtures equivalentes, código 0
+npm run build: build de producción correcto, código 0
+```
+
+Las salidas de las primeras ejecuciones correctas están en react-test.txt, react-build.txt, react-dominio.txt, react-solid.txt y react-lint.txt. El tiempo del primer build y los seis casos no se altera con esta repetición.
+
+Vite arrancó en http://127.0.0.1:5173/ y fue detenido antes de la instalación final. No hubo navegador disponible conectado: intento iab falló con «Browser is not available: iab» y listBrowsers devolvió []. No se presenta una inspección visual como realizada.
+
+
+```text
+Publicación realizada y verificada el 2026-10-02, America/Bogota.
+
+React: https://github.com/paugallardo-collab/divisor_cuenta_web
+Visibilidad PRIVATE, igual que el laboratorio.
+git push -u origin main: código 0, nueva rama main publicada.
+git ls-remote origin refs/heads/main:
+88bc0249a455b354935eb192d86343e3fd749691 refs/heads/main
+Ese commit contiene implementación, tests y entrega escrita.
+
+Flutter: https://github.com/paugallardo-collab/Participacion1oct/tree/sdd
+Visibilidad PRIVATE.
+git push origin sdd: código 0, actualizado 32d62a1..58dc10c.
+git ls-remote origin refs/heads/sdd:
+58dc10c9ac273cb1bde638cc86c0f55f1290a963 refs/heads/sdd
+Contiene la bitácora observada de la migración; el código Flutter no cambió.
+
+Esta evidencia y la marca final T021 se añaden en un commit documental posterior.
+El profesor debe tener acceso a ambos repos privados; no se cambió visibilidad ni se enviaron invitaciones o una entrega a la plataforma.
+
+```

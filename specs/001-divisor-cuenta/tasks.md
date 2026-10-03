@@ -49,7 +49,7 @@ Prueba independiente: escenarios 5 y 6, 3.33 y 4.00; LSP con un único calcularD
 - [x] T018 Implementar y ejecutar capas/domain puro en tool/verificarArquitectura.mjs y comparación semántica de casos en tool/compararCasos.mjs (FR-006, SC-004, SOLID).
 - [x] T019 Ejecutar convergencia frente a spec/plan/tasks y conservar resumen en evidencias/convergencia.md.
 - [x] T020 Compilar por primera vez, ejecutar seis casos y detener cronómetro; suite completa, lint, verificar y build final; registrar en evidencias/ y bitacora.md (SC-001).
-- [ ] T021 Comparar spec, constituciones y planes; completar respuestas.md, GUIA_APP.md y README.md; publicar GitHub con historial separado.
+- [x] T021 Comparar spec, constituciones y planes; completar respuestas.md, GUIA_APP.md y README.md; publicar GitHub con historial separado.
 
 ## Dependencies & Execution Order
 
