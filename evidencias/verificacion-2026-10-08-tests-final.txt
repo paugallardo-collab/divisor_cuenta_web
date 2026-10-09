@@ -1,0 +1,54 @@
+
+> divisor_cuenta_web@1.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v5.0.3 C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web
+
+ ✓ test/pantalla.test.jsx > 100, 4, 10: muestra 27.50 4937ms
+ ✓ test/pantalla.test.jsx > 50 y cero personas: error sin resultado ni llamada al cálculo 968ms
+ ✓ test/pantalla.test.jsx > abc en monto: Monto inválido sin cálculo 1187ms
+ ✓ test/interaccion.test.jsx > Estado inicial y coma decimal 7289ms
+ ✓ test/interaccion.test.jsx > Editar Monto total borra resultado anterior 2110ms
+ ✓ test/interaccion.test.jsx > Editar Personas borra resultado anterior 10018ms
+ ✓ test/interaccion.test.jsx > Editar Propina (%) borra resultado anterior 7592ms
+ ✓ test/interaccion.test.jsx > Editar Redondeo borra resultado anterior 1515ms
+ ✓ test/interaccion.test.jsx > Corrige error y recalcula 1352ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual  completo 9410ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 12abc completo 2953ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 1,000.00 completo 1347ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual Infinity completo 1415ms
+ ✓ test/interaccion.test.jsx > Rechaza personas fraccionarias y propina vacía 2019ms
+ ✓ test/interaccion.test.jsx > La UI funciona con una nueva estrategia inyectada y sin red 803ms
+ ✓ test/limites.test.js > Rechaza monto -1 27ms
+ ✓ test/limites.test.js > Rechaza monto NaN 3ms
+ ✓ test/limites.test.js > Rechaza monto Infinity 3ms
+ ✓ test/limites.test.js > Rechaza monto 1000000001 2ms
+ ✓ test/limites.test.js > Rechaza personas 0 4ms
+ ✓ test/limites.test.js > Rechaza personas -1 2ms
+ ✓ test/limites.test.js > Rechaza personas 1.5 1ms
+ ✓ test/limites.test.js > Rechaza personas NaN 1ms
+ ✓ test/limites.test.js > Rechaza personas Infinity 3ms
+ ✓ test/limites.test.js > Personas fuera del límite superior 1ms
+ ✓ test/limites.test.js > Rechaza propina -1 2ms
+ ✓ test/limites.test.js > Rechaza propina NaN 1ms
+ ✓ test/limites.test.js > Rechaza propina Infinity 0ms
+ ✓ test/limites.test.js > Rechaza propina 101 0ms
+ ✓ test/limites.test.js > Acepta cero y límites inclusivos 2ms
+ ✓ test/limites.test.js > Exacto conserva mitades hacia arriba como Flutter 5ms
+ ✓ test/limites.test.js > Techo no incrementa un entero 6ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 1. reparto normal 20ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 2. sin propina 4ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 3. cero personas 7ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 4. monto no numerico 4ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 5. redondeo exacto 2ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 6. redondeo hacia arriba 2ms
+ ✓ test/division.test.js > LSP: el mismo cálculo acepta ambas estrategias sin inspeccionar su tipo 2ms
+
+ Test Files  4 passed (4)
+      Tests  39 passed (39)
+   Start at  19:31:13
+   Duration  208.92s (environment 58%, tests 28%, setup 11%, transform 2%, worker 1%)
+
+    Isolate  4 workers spawned · ~31.34s startup each (spawn + environment, per file)
+             at least ~94.03s faster with isolate: false — reuses workers across files instead of one per file

@@ -15,4 +15,6 @@ Flujo speckit-converge disponible en Spec Kit 1.0.13, ejecutado por Codex despu�
 
 **Converged — la implementación satisface spec, plan y tareas técnicas.** Evidencia: 39 pruebas verdes, build, lint, comparación de fixtures y verificación de capas. No hay extensions.yml ni hooks.
 
-La revisión visual humana y los dos ejercicios que el deber pide a mano están declarados pendientes en README; no son brechas de comportamiento del código ni se atribuyen como completados por el estudiante. Publicación remota se confirma por separado en publicacion.txt.
+Los dos ejercicios que el deber pide realizar personalmente tienen sus archivos completos con asistencia declarada; no se atribuyen como escritos a mano por el estudiante. La interfaz está cubierta por pruebas automatizadas, sin declarar revisión visual humana. Publicación remota se confirma por separado en publicacion.txt.
+
+Recomprobación de entrega 08/10/2026: 39 React, 28 Flutter, lint, capas, comparación de fixtures y build correctos. Vitest utiliza threads con un worker y espera de 30 segundos por prueba para este entorno. Spec, fixtures y reglas de producción sin cambios.

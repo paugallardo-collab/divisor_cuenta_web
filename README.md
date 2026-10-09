@@ -2,7 +2,7 @@
 
 Migración SDD del divisor de cuenta de Flutter a React/Vite/JavaScript. Una pantalla, propina y dos estrategias, sin backend, historial ni persistencia.
 
-Origen confirmado: [Participacion1oct, rama sdd](https://github.com/paugallardo-collab/Participacion1oct/tree/sdd), snapshot 32d62a1; es la participación del 1 de octubre. El repo Flutter conserva su nombre original y ya está en GitHub. React: [divisor_cuenta_web](https://github.com/paugallardo-collab/divisor_cuenta_web). Ambos privados, igual que el laboratorio.
+Origen confirmado: [Participacion1oct, rama sdd](https://github.com/paugallardo-collab/Participacion1oct/tree/sdd), snapshot 32d62a1; es la participación del 1 de octubre. La misma historia Flutter se publica también con el nombre solicitado: [divisor_cuenta, rama sdd](https://github.com/paugallardo-collab/divisor_cuenta/tree/sdd). React: [divisor_cuenta_web](https://github.com/paugallardo-collab/divisor_cuenta_web). Ambos privados, igual que el laboratorio.
 
 ## Ejecutar
 
@@ -37,9 +37,12 @@ npm run build
 
 Resultado observado: Flutter 28 pruebas; React 39 pruebas (6 casos + LSP + 3 pantalla + 29 de límites/interacciones). Lint, build y SOLID correctos. Fixtures Dart/JS equivalentes mediante extracción y deepEqual. Sin imports React/DOM en domain; concretos solo en main.jsx fuera de data.
 
-## Pendiente antes de entregar
+## Entrega preparada el 8 de octubre de 2026
 
-- El estudiante debe realizar/revisar personalmente analisis_spec.md y test/casosDePrueba.js: el enunciado pide ambas partes a mano y aquí hay borradores del agente.
-- Poder explicar las funciones; consultar GUIA_APP.md.
-- Abrir la app y revisar visualmente escritorio/móvil: no hubo navegador conectado disponible para esa revisión.
-- Verificar que el profesor pueda acceder a ambos repos privados y enviar sus enlaces en la plataforma de la materia. No se envió ninguna entrega académica.
+Consultar [ENTREGA.md](ENTREGA.md): relación de requisitos, archivos y enlaces. Se proporciona fuera de este repositorio un ZIP con ambos proyectos y un PDF con la documentación final.
+
+Verificación actual: Flutter 28/28; React 39/39; lint, arquitectura/comparación de fixtures y build correctos. Los logs nuevos están en evidencias/verificacion-2026-10-08-*.txt. Vitest usa un worker de threads y tiempos de espera de 30 segundos para evitar fallos de arranque y tiempos agotados observados en esta computadora; no se cambiaron escenarios ni aserciones.
+
+El análisis y los seis fixtures están completos con asistencia de Codex. El enunciado pide que el estudiante realice personalmente esas dos partes; no se atribuye autoría manual al estudiante. GUIA_APP.md explica las funciones para que pueda repasarlas.
+
+Los repositorios son privados: el profesor necesita acceso a divisor_cuenta y divisor_cuenta_web. La entrega a la plataforma de la materia corresponde al estudiante. No se ha enviado una invitación al profesor porque no se proporcionó su usuario de GitHub. La interfaz fue comprobada mediante Testing Library; no se declara una revisión visual humana en un navegador.

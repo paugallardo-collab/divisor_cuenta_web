@@ -1,0 +1,78 @@
+
+> divisor_cuenta_web@1.0.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism --reporter=verbose
+
+
+ RUN  v5.0.3 C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web
+
+ ✓ test/interaccion.test.jsx > Estado inicial y coma decimal 1995ms
+ ✓ test/interaccion.test.jsx > Editar Monto total borra resultado anterior 849ms
+ ✓ test/interaccion.test.jsx > Editar Personas borra resultado anterior 657ms
+ ✓ test/interaccion.test.jsx > Editar Propina (%) borra resultado anterior 577ms
+ ✓ test/interaccion.test.jsx > Editar Redondeo borra resultado anterior 414ms
+ ✓ test/interaccion.test.jsx > Corrige error y recalcula 1129ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual  completo 565ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 12abc completo 740ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 1,000.00 completo 642ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual Infinity completo 539ms
+ ✓ test/interaccion.test.jsx > Rechaza personas fraccionarias y propina vacía 1064ms
+ ✓ test/interaccion.test.jsx > La UI funciona con una nueva estrategia inyectada y sin red 883ms
+ × test/pantalla.test.jsx > 100, 4, 10: muestra 27.50 5830ms
+   → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ✓ test/pantalla.test.jsx > 50 y cero personas: error sin resultado ni llamada al cálculo 1309ms
+ ✓ test/pantalla.test.jsx > abc en monto: Monto inválido sin cálculo 794ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 1. reparto normal 25ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 2. sin propina 7ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 3. cero personas 8ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 4. monto no numerico 6ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 5. redondeo exacto 2ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 6. redondeo hacia arriba 3ms
+ ✓ test/division.test.js > LSP: el mismo cálculo acepta ambas estrategias sin inspeccionar su tipo 2ms
+ ✓ test/limites.test.js > Rechaza monto -1 30ms
+ ✓ test/limites.test.js > Rechaza monto NaN 5ms
+ ✓ test/limites.test.js > Rechaza monto Infinity 8ms
+ ✓ test/limites.test.js > Rechaza monto 1000000001 11ms
+ ✓ test/limites.test.js > Rechaza personas 0 3ms
+ ✓ test/limites.test.js > Rechaza personas -1 1ms
+ ✓ test/limites.test.js > Rechaza personas 1.5 1ms
+ ✓ test/limites.test.js > Rechaza personas NaN 5ms
+ ✓ test/limites.test.js > Rechaza personas Infinity 4ms
+ ✓ test/limites.test.js > Personas fuera del límite superior 6ms
+ ✓ test/limites.test.js > Rechaza propina -1 10ms
+ ✓ test/limites.test.js > Rechaza propina NaN 3ms
+ ✓ test/limites.test.js > Rechaza propina Infinity 6ms
+ ✓ test/limites.test.js > Rechaza propina 101 6ms
+ ✓ test/limites.test.js > Acepta cero y límites inclusivos 14ms
+ ✓ test/limites.test.js > Exacto conserva mitades hacia arriba como Flutter 3ms
+ ✓ test/limites.test.js > Techo no incrementa un entero 13ms
+npm.cmd :
+At line:2 char:1
++ npm.cmd test -- --pool=threads --maxWorkers=1 --no-file-parallelism - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/pantalla.test.jsx > 100, 4, 10: muestra 27.50
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ test/pantalla.test.jsx:13:1
+     11| }
+     12|
+     13| it('100, 4, 10: muestra 27.50', () => {
+       | ^
+     14|   render(<PantallaDivisor {...dependencias()} />)
+     15|   ingresar('100', '4', '10')
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 38 passed (39)
+   Start at  19:24:58
+   Duration  115.98s (environment 48%, setup 32%, tests 16%, transform 2%, worker 1%, import 1%)
+
+    Isolate  4 workers spawned · ~14.56s startup each (spawn + environment, per file)
+             at least ~43.67s faster with isolate: false — reuses workers across files instead of one per file

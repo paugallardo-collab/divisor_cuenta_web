@@ -8,5 +8,10 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./test/setup.js'],
+    pool: 'threads',
+    maxWorkers: 1,
+    fileParallelism: false,
+    testTimeout: 30000,
+    hookTimeout: 30000,
   },
 })

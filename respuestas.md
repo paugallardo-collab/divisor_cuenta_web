@@ -1,6 +1,6 @@
 # Respuestas — Deber 2
 
-Borrador elaborado con asistencia del agente. Los datos proceden de archivos, pruebas y comandos de esta sesión. El estudiante debe revisar los ejercicios manuales antes de entregar.
+Respuestas completas elaboradas con asistencia de Codex. Los datos proceden de archivos, pruebas y comandos observados. La asistencia se declara expresamente; no se afirma autoría manual del estudiante en los dos ejercicios que el enunciado solicita realizar personalmente.
 
 ## 1. Porcentaje de especificación que viajó
 
@@ -65,21 +65,21 @@ index e343965..78303c9 100644
 @@ -1,75 +1,89 @@
 -﻿# Implementation Plan: Divisor de cuenta
 +# Implementation Plan: Divisor de cuenta web
- 
+
 -**Branch**: `sdd` | **Date**: 2026-09-30 | **Spec**: [spec.md](spec.md)
 -**Input**: specs/001-divisor-cuenta/spec.md
 +**Branch**: main | **Date**: 2026-10-02 | **Spec**: [spec.md](spec.md)
 +**Input**: specs/001-divisor-cuenta/spec.md, copia íntegra de sdd de Participacion1oct.
- 
+
  ## Summary
- 
+
  Dividir una cuenta con propina, validación y dos estrategias intercambiables de redondeo.
 -Una pantalla Material 3, estado local setState y dependencias inyectadas desde main.dart.
 +Una pantalla React, estado local useState y dependencias inyectadas desde src/main.jsx.
 +No se ejecuta speckit-specify; la especificación permanece idéntica.
- 
+
  ## Technical Context
- 
+
 -- Language/Version: Dart 3.13.1, Flutter estable 3.47.1 (versiones comprobadas).
 -- Primary Dependencies: Flutter SDK; sin paquetes externos en producción. Retirar cupertino_icons del scaffold.
 -- Testing: flutter_test del SDK, flutter_lints heredado solo para desarrollo y comprobador Dart puro.
@@ -98,9 +98,9 @@ index e343965..78303c9 100644
 +- Performance Goals: cálculo síncrono O(1), sin E/S.
 +- Constraints: validar antes del cálculo; dos decimales; offline durante el cálculo; conservar límites y mensajes.
 +- Scale/Scope: una cuenta por vez; viewport estrecho y etiquetas accesibles.
- 
+
  ## Constitution Check
- 
+
 -Antes y después del diseño: aprobado. SRP separa cálculo/validación/formato; OCP y LSP usan
 -EstrategiaRedondeo; ISP conserva un método; DIP inyecta dependencias desde main.dart.
 -Domain y data son Dart puro. Solo tests y main pueden crear las estrategias concretas.
@@ -111,9 +111,9 @@ index e343965..78303c9 100644
 +DIP: useDivisor recibe validar/calcular/formatear/opciones por argumento; presentation no importa data.
 +Domain es JavaScript puro, ejecutable con Node sin React ni DOM. main es el único punto de composición.
 +Los seis casos y errores conservan el significado de Dart. Se incluyen pruebas de límites y edición porque la spec los exige.
- 
+
  ## Project Structure
- 
+
 -Documentos: spec.md, plan.md, research.md, data-model.md, contracts/interfaz.md,
 -quickstart.md, tasks.md y checklists/requirements.md dentro de specs/001-divisor-cuenta/.
 +### Documentation (this feature)
@@ -122,7 +122,7 @@ index e343965..78303c9 100644
 +analisis_spec.md y evidencias/original conservan el inventario y punto de partida.
 +
 +### Source Code (repository root)
- 
+
  ```text
 -lib/
 -  domain/cuenta.dart
@@ -166,7 +166,7 @@ index e343965..78303c9 100644
 +  verificarArquitectura.mjs
 +  compararCasos.mjs
  ```
- 
+
 -**Structure Decision**: respetar las tres capas exigidas; data contiene estrategias, no una base de datos.
 -El controlador convierte texto a Cuenta, llama ValidarEntrada y solo calcula si devuelve null.
 -Su mapa de estrategias se inyecta; agregar una estrategia no exige tocar CalcularDivision.
@@ -186,9 +186,9 @@ index e343965..78303c9 100644
 +Redondeo hacia arriba usa Math.ceil, conservando los enteros.
 +La pantalla permite desplazamiento y ancho adaptable; inputs de texto con inputMode permiten probar abc y coma decimal.
 +Editar cualquier campo o modo borra resultado y error. Inicio: monto vacío, 2 personas, propina 0, exacto.
- 
+
  ## Phases
- 
+
 -0. Decisiones resueltas con enunciado, SDK instalado y constitution; ninguna investigación delegada necesaria.
 -1. Modelos, contrato y guía rápida de ejecución.
 -2. Tareas y análisis de cobertura antes del código.
@@ -241,7 +241,7 @@ Migración basada en Participacion1oct/sdd, snapshot 32d62a1. El laboratorio no 
 - Spec Kit 1.0.13 sí ofrece speckit-converge. Revisión final y resultado en evidencias/convergencia.md del repo React.
 - Investigación de compatibilidad delegada por instrucción del flujo plan; no altera el conteo de prompts del estudiante.
 - Revisión visual real del navegador pendiente: herramienta de navegador sin superficies conectadas (listBrowsers devolvió []). Vite arrancó en 127.0.0.1:5173; UI funcional cubierta por Testing Library.
-- Ejercicios requeridos a mano: analisis_spec.md y test/casosDePrueba.js son borradores del agente; el estudiante debe realizar/revisar su propia clasificación y traducción, y poder explicar las funciones.
+- Clasificación y traducción de los seis casos: archivos completos elaborados con asistencia de Codex. El enunciado pide autoría personal del estudiante para estos ejercicios; no se declara realizada por él. La explicación de funciones está en GUIA_APP.md.
 
 La diferencia de tiempo no demuestra superioridad del enfoque: no hay medición comparable de Flutter ni experimento controlado.
 
@@ -453,4 +453,161 @@ Contiene la bitácora observada de la migración; el código Flutter no cambió.
 Esta evidencia y la marca final T021 se añaden en un commit documental posterior.
 El profesor debe tener acceso a ambos repos privados; no se cambió visibilidad ni se enviaron invitaciones o una entrega a la plataforma.
 
+```
+
+
+## Verificación de entrega — 8 de octubre de 2026
+
+Esta revisión es posterior a la medición original del 2 de octubre: no modifica el cronómetro ni los datos históricos de bitácora. Flutter sigue en sdd. Node y npm cumplen los requisitos ya registrados.
+
+La primera ejecución de React falló al iniciar cuatro workers del pool forks. El reintento con un thread ejecutó los 39 casos: 38 pasaron y uno agotó los 5 segundos predeterminados. Se configuró Vitest con pool threads, un worker, archivos secuenciales y testTimeout/hookTimeout de 30 segundos. El comando normal npm test pasó posteriormente las 39 pruebas. No se alteraron valores, aserciones, reglas de negocio ni código de producción. Los dos intentos fallidos se conservan en evidencias/verificacion-2026-10-08-tests.txt y tests-reintento.txt.
+
+### Flutter: 28 pruebas
+
+```text
+00:00 +0: loading C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/division_test.dart
+00:00 +0: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/limites_test.dart: Rechaza monto -1.0
+00:00 +1: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/division_test.dart: 1. reparto normal
+00:00 +2: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +3: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +4: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +5: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +6: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +7: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +8: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +9: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +10: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +11: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +12: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +13: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +14: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +15: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +16: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +17: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +18: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:00 +19: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 1
+00:10 +20: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 2
+00:12 +21: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 3
+00:13 +22: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 4
+00:14 +23: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 5
+00:15 +24: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla: escenario 6
+00:16 +25: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Editar borra el resultado y un error no lo recupera
+00:18 +26: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Cambiar modo borra resultado; acepta coma decimal
+00:19 +27: C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/Participacion1oct/test/pantalla_test.dart: Pantalla estrecha y texto grande sin desbordamiento
+00:20 +28: All tests passed!
+```
+
+### React: 39 pruebas
+
+```text
+> divisor_cuenta_web@1.0.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v5.0.3 C:/FlutterProjects/Prog.-Asistida-de-Aplicaciones/deber2/divisor_cuenta_web
+
+ ✓ test/pantalla.test.jsx > 100, 4, 10: muestra 27.50 4937ms
+ ✓ test/pantalla.test.jsx > 50 y cero personas: error sin resultado ni llamada al cálculo 968ms
+ ✓ test/pantalla.test.jsx > abc en monto: Monto inválido sin cálculo 1187ms
+ ✓ test/interaccion.test.jsx > Estado inicial y coma decimal 7289ms
+ ✓ test/interaccion.test.jsx > Editar Monto total borra resultado anterior 2110ms
+ ✓ test/interaccion.test.jsx > Editar Personas borra resultado anterior 10018ms
+ ✓ test/interaccion.test.jsx > Editar Propina (%) borra resultado anterior 7592ms
+ ✓ test/interaccion.test.jsx > Editar Redondeo borra resultado anterior 1515ms
+ ✓ test/interaccion.test.jsx > Corrige error y recalcula 1352ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual  completo 9410ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 12abc completo 2953ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual 1,000.00 completo 1347ms
+ ✓ test/interaccion.test.jsx > Rechaza monto textual Infinity completo 1415ms
+ ✓ test/interaccion.test.jsx > Rechaza personas fraccionarias y propina vacía 2019ms
+ ✓ test/interaccion.test.jsx > La UI funciona con una nueva estrategia inyectada y sin red 803ms
+ ✓ test/limites.test.js > Rechaza monto -1 27ms
+ ✓ test/limites.test.js > Rechaza monto NaN 3ms
+ ✓ test/limites.test.js > Rechaza monto Infinity 3ms
+ ✓ test/limites.test.js > Rechaza monto 1000000001 2ms
+ ✓ test/limites.test.js > Rechaza personas 0 4ms
+ ✓ test/limites.test.js > Rechaza personas -1 2ms
+ ✓ test/limites.test.js > Rechaza personas 1.5 1ms
+ ✓ test/limites.test.js > Rechaza personas NaN 1ms
+ ✓ test/limites.test.js > Rechaza personas Infinity 3ms
+ ✓ test/limites.test.js > Personas fuera del límite superior 1ms
+ ✓ test/limites.test.js > Rechaza propina -1 2ms
+ ✓ test/limites.test.js > Rechaza propina NaN 1ms
+ ✓ test/limites.test.js > Rechaza propina Infinity 0ms
+ ✓ test/limites.test.js > Rechaza propina 101 0ms
+ ✓ test/limites.test.js > Acepta cero y límites inclusivos 2ms
+ ✓ test/limites.test.js > Exacto conserva mitades hacia arriba como Flutter 5ms
+ ✓ test/limites.test.js > Techo no incrementa un entero 6ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 1. reparto normal 20ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 2. sin propina 4ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 3. cero personas 7ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 4. monto no numerico 4ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 5. redondeo exacto 2ms
+ ✓ test/division.test.js > Los mismos seis escenarios de Flutter > 6. redondeo hacia arriba 2ms
+ ✓ test/division.test.js > LSP: el mismo cálculo acepta ambas estrategias sin inspeccionar su tipo 2ms
+
+ Test Files  4 passed (4)
+      Tests  39 passed (39)
+   Start at  19:31:13
+   Duration  208.92s (environment 58%, tests 28%, setup 11%, transform 2%, worker 1%)
+
+    Isolate  4 workers spawned · ~31.34s startup each (spawn + environment, per file)
+             at least ~94.03s faster with isolate: false — reuses workers across files instead of one per file
+```
+
+### Lint
+
+```text
+> divisor_cuenta_web@1.0.0 lint
+> oxlint
+```
+
+### Arquitectura y equivalencia de escenarios
+
+```text
+> divisor_cuenta_web@1.0.0 verificar
+> node tool/verificarArquitectura.mjs && node tool/compararCasos.mjs
+
+Domain ejecutado con Node sin React ni DOM: OK
+DIP: presentation no importa data; implementaciones concretas solo en main.jsx: OK
+SRP, OCP, LSP e ISP: cálculo sin validación/formato/condiciones por estrategia: OK
+Assets locales: no hay dependencia CDN en index.html ni src: OK
+Comparación semántica Dart → JavaScript: 6/6 casos idénticos
+1. reparto normal: monto=100, personas=4, propina=10, modo=exacto → 27.50
+2. sin propina: monto=90, personas=3, propina=0, modo=exacto → 30.00
+3. cero personas: monto=50, personas=0, propina=0, modo=exacto → Debe haber al menos una persona
+4. monto no numerico: monto=NaN, personas=4, propina=0, modo=exacto → Monto inválido
+5. redondeo exacto: monto=10, personas=3, propina=0, modo=exacto → 3.33
+6. redondeo hacia arriba: monto=10, personas=3, propina=0, modo=arriba → 4.00
+Entradas, escenarios, valores esperados y mensajes sin cambios; solo sintaxis y runner distintos.
+```
+
+### Build
+
+```text
+> divisor_cuenta_web@1.0.0 build
+> vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 24 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.64 kB │ gzip:  0.38 kB
+dist/assets/index-DITnDv6w.css    6.02 kB │ gzip:  2.05 kB
+dist/assets/index-DChCQgkN.js   196.51 kB │ gzip: 61.94 kB
+
+✓ built in 5.05s
+npm.cmd : [PLUGIN_TIMINGS] JavaScript callbacks ran for 3.3s of this 5.0s build (66%).
+At line:2 char:455
++ ... XITCODE -ne 0) { exit $LASTEXITCODE }; npm.cmd run build 2>&1 | Tee-O ...
++                                            ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([PLUGIN_TI...0s build (66%).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits
+is included):
+  - plugin vite:css-post renderChunk (50%, 2.5s, 1 call)
+Additional callback time came from callbacks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
 ```

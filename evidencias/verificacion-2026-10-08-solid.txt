@@ -1,0 +1,16 @@
+
+> divisor_cuenta_web@1.0.0 verificar
+> node tool/verificarArquitectura.mjs && node tool/compararCasos.mjs
+
+Domain ejecutado con Node sin React ni DOM: OK
+DIP: presentation no importa data; implementaciones concretas solo en main.jsx: OK
+SRP, OCP, LSP e ISP: cálculo sin validación/formato/condiciones por estrategia: OK
+Assets locales: no hay dependencia CDN en index.html ni src: OK
+Comparación semántica Dart → JavaScript: 6/6 casos idénticos
+1. reparto normal: monto=100, personas=4, propina=10, modo=exacto → 27.50
+2. sin propina: monto=90, personas=3, propina=0, modo=exacto → 30.00
+3. cero personas: monto=50, personas=0, propina=0, modo=exacto → Debe haber al menos una persona
+4. monto no numerico: monto=NaN, personas=4, propina=0, modo=exacto → Monto inválido
+5. redondeo exacto: monto=10, personas=3, propina=0, modo=exacto → 3.33
+6. redondeo hacia arriba: monto=10, personas=3, propina=0, modo=arriba → 4.00
+Entradas, escenarios, valores esperados y mensajes sin cambios; solo sintaxis y runner distintos.
