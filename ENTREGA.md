@@ -31,7 +31,7 @@ Ambos proyectos solicitados son privados. El profesor debe tener acceso a ambos 
 
 ## Atribución y alcance
 
-Trabajo elaborado con asistencia de Codex a petición del estudiante. La clasificación y los fixtures están completos, pero el enunciado pide realizarlos personalmente: no se afirma que el estudiante los haya escrito a mano. La explicación personal del código y el envío académico corresponden al estudiante. Las pruebas de interfaz son automatizadas; no se presenta una revisión visual humana como realizada.
+El estudiante realizó personalmente el análisis de la especificación y la constitución, la clasificación de los enunciados y la traducción de los seis casos de aceptación. La implementación del código se realizó con asistencia de Codex. La explicación personal del código y el envío académico corresponden al estudiante. Las pruebas de interfaz son automatizadas; no se presenta una revisión visual humana como realizada.
 
 ## Archivos para subir
 

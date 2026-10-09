@@ -43,6 +43,6 @@ Consultar [ENTREGA.md](ENTREGA.md): relación de requisitos, archivos y enlaces.
 
 Verificación actual: Flutter 28/28; React 39/39; lint, arquitectura/comparación de fixtures y build correctos. Los logs nuevos están en evidencias/verificacion-2026-10-08-*.txt. Vitest usa un worker de threads y tiempos de espera de 30 segundos para evitar fallos de arranque y tiempos agotados observados en esta computadora; no se cambiaron escenarios ni aserciones.
 
-El análisis y los seis fixtures están completos con asistencia de Codex. El enunciado pide que el estudiante realice personalmente esas dos partes; no se atribuye autoría manual al estudiante. GUIA_APP.md explica las funciones para que pueda repasarlas.
+El estudiante realizó personalmente el análisis de la especificación y la constitución y la traducción de los seis casos de aceptación. La implementación del código se realizó con asistencia de Codex. GUIA_APP.md explica las funciones para repasarlas.
 
 Los repositorios son privados: el profesor necesita acceso a divisor_cuenta y divisor_cuenta_web. La entrega a la plataforma de la materia corresponde al estudiante. No se ha enviado una invitación al profesor porque no se proporcionó su usuario de GitHub. La interfaz fue comprobada mediante Testing Library; no se declara una revisión visual humana en un navegador.

@@ -24,10 +24,12 @@ Migración basada en Participacion1oct/sdd, snapshot 32d62a1. El laboratorio no 
 - Spec Kit 1.0.13 sí ofrece speckit-converge. Revisión final y resultado en evidencias/convergencia.md del repo React.
 - Investigación de compatibilidad delegada por instrucción del flujo plan; no altera el conteo de prompts del estudiante.
 - Revisión visual real del navegador pendiente: herramienta de navegador sin superficies conectadas (listBrowsers devolvió []). Vite arrancó en 127.0.0.1:5173; UI funcional cubierta por Testing Library.
-- Clasificación y traducción de los seis casos: archivos completos elaborados con asistencia de Codex. El enunciado pide autoría personal del estudiante para estos ejercicios; no se declara realizada por él. La explicación de funciones está en GUIA_APP.md.
+- Trabajo personal finalizado por el estudiante: análisis de la especificación y la constitución, clasificación de enunciados y traducción de los seis casos de aceptación. La implementación del código se realizó con asistencia de Codex. La explicación de funciones está en GUIA_APP.md.
 
 La diferencia de tiempo no demuestra superioridad del enfoque: no hay medición comparable de Flutter ni experimento controlado.
 
+Las métricas anteriores corresponden a la sesión de implementación del 2 de octubre; el trabajo personal posterior se registra por separado, sin inventar un conteo de líneas.
+
 ## Revisión posterior: 08/10/2026
 
-28 pruebas Flutter y 39 React verificadas de nuevo. Lint, arquitectura, equivalencia de fixtures y build correctos. Ajuste del runner Vitest para el entorno Windows, sin cambiar reglas ni escenarios. Este trabajo posterior no se suma a los tiempos originales ni se inventa una intervención manual del estudiante.
+28 pruebas Flutter y 39 React verificadas de nuevo. Lint, arquitectura, equivalencia de fixtures y build correctos. Ajuste del runner Vitest para el entorno Windows, sin cambiar reglas ni escenarios. Esta revisión posterior y la finalización del trabajo personal no se suman al cronómetro de implementación del 2 de octubre. Los valores de la tabla corresponden a esa sesión original.

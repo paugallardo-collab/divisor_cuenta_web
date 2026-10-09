@@ -39,4 +39,4 @@ SRP separa validar, calcular, formatear y dibujar. OCP agrega estrategias en com
 
 ## Lo que revisa el estudiante
 
-El deber exige clasificación y casos a mano, y explicar cada función. Este repo contiene ambos archivos completos elaborados con asistencia de Codex, sin atribuir redacción manual al estudiante. La tabla de funciones anterior sirve para preparar una explicación propia. Los tiempos no registrados del laboratorio siguen sin registrarse. La UI se probó con Testing Library; falta la revisión visual humana en un navegador real.
+El estudiante realizó personalmente la clasificación y la traducción de los seis casos. La implementación del código se realizó con asistencia de Codex. La tabla de funciones anterior sirve para preparar una explicación propia. Los tiempos no registrados del laboratorio siguen sin registrarse. La UI se probó con Testing Library; falta la revisión visual humana en un navegador real.

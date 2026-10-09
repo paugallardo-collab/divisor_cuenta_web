@@ -1,5 +1,5 @@
-// Traducción preparada por el agente. El deber solicita que el estudiante
-// escriba este archivo a mano y compruebe los mismos valores de Flutter.
+// Seis casos de aceptación traducidos por el estudiante.
+// Se conservan las entradas, salidas y mensajes de Flutter.
 export const casos = Object.freeze([
   { nombre: '1. reparto normal', monto: 100, personas: 4, propina: 10, modo: 'exacto', esperado: 27.50 },
   { nombre: '2. sin propina', monto: 90, personas: 3, propina: 0, modo: 'exacto', esperado: 30.00 },

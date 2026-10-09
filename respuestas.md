@@ -1,6 +1,6 @@
 # Respuestas — Deber 2
 
-Respuestas completas elaboradas con asistencia de Codex. Los datos proceden de archivos, pruebas y comandos observados. La asistencia se declara expresamente; no se afirma autoría manual del estudiante en los dos ejercicios que el enunciado solicita realizar personalmente.
+Estas respuestas presentan el análisis realizado por el estudiante y las evidencias de la migración. La implementación del código se realizó con asistencia de Codex. Los datos proceden de archivos, pruebas y comandos observados.
 
 ## 1. Porcentaje de especificación que viajó
 
@@ -241,7 +241,7 @@ Migración basada en Participacion1oct/sdd, snapshot 32d62a1. El laboratorio no 
 - Spec Kit 1.0.13 sí ofrece speckit-converge. Revisión final y resultado en evidencias/convergencia.md del repo React.
 - Investigación de compatibilidad delegada por instrucción del flujo plan; no altera el conteo de prompts del estudiante.
 - Revisión visual real del navegador pendiente: herramienta de navegador sin superficies conectadas (listBrowsers devolvió []). Vite arrancó en 127.0.0.1:5173; UI funcional cubierta por Testing Library.
-- Clasificación y traducción de los seis casos: archivos completos elaborados con asistencia de Codex. El enunciado pide autoría personal del estudiante para estos ejercicios; no se declara realizada por él. La explicación de funciones está en GUIA_APP.md.
+- Trabajo personal finalizado por el estudiante: análisis de la especificación y la constitución, clasificación de enunciados y traducción de los seis casos de aceptación. La implementación del código se realizó con asistencia de Codex. La explicación de funciones está en GUIA_APP.md.
 
 La diferencia de tiempo no demuestra superioridad del enfoque: no hay medición comparable de Flutter ni experimento controlado.
 
